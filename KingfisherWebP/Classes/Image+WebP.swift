@@ -10,7 +10,7 @@ import Kingfisher
 import KingfisherWebP.Private
 
 // MARK: - Image Representation
-extension Kingfisher where Base: Image {
+extension KingfisherWrapper where Base: Image {
     public func webpRepresentation() -> Data? {
         if let result = animatedWebPRepresentation() {
             return result
@@ -38,7 +38,7 @@ extension Kingfisher where Base: Image {
 }
 
 // MARK: - Create image from WebP data
-extension Kingfisher where Base: Image {
+extension KingfisherWrapper where Base: Image {
     static func image(webpData: Data, scale: CGFloat, onlyFirstFrame: Bool) -> Image? {
         let frameCount = WebPImageFrameCountGetFromData(webpData as CFData)
         if (frameCount == 0) {
